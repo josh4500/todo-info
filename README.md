@@ -36,12 +36,17 @@ POST  http://<host-url>/todo/update/<userid>/<todo-id>
 Content-Type: application/json
 
 {
-    "userid": "davinci4500",
+    "userid": <userid>,
     "isTodo": "false",
-    "title": "Mubarack",
+    "title": "Hey our second test",
     "description": "Hey our unknown todo",
-    "todoList": [{"todo": "Going back to church", "checked": false}]
+    "todoList": []
 }
+```
+
+## Delete an entry from the todo
+```rest
+DELETE  http://<host-url>/todo/delete/<userid>/<todo-id>
 ```
 
 ## Contributing
