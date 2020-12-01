@@ -1,4 +1,4 @@
-# Todo-info app Express JS and Mongodb Backend
+# Todo-info app (Express JS and Mongodb Backend)
 
 ## Usage
 
