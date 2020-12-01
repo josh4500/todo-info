@@ -1,0 +1,6 @@
+{
+  "name": "Todo info",
+  "description": "An Express and MongoDB backend app for todo",
+  "repository": "https://git.heroku.com/todo-info-davinci4500.git ",
+  "keywords": ["node", "express", "heroku"]
+}
