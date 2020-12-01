@@ -10,8 +10,8 @@ db.once('open', ()=> console.log("Connected to DB"))
 
 app.use(express.json())
 
-const todoRouter = require("./route/todo")
-const userRouter = require("./route/user")
+const todoRouter = require("../route/todo")
+const userRouter = require("../route/user")
 app.use("/todo", todoRouter)
 app.use("/user", userRouter)
 
