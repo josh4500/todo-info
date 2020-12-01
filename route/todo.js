@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Todo = require('../models/todo')
 
+//To get all users entry data
+
 // router.get('/', async (req, res) => {
 //     const {userid} = req.params
 //     try{
