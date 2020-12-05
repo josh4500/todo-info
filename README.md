@@ -79,15 +79,22 @@ Content-Type: application/json
 
 ```
 
-## Get user data
+## Authenticate user
 
 ```rest
 POST http://<host-url>/user/getUser
 Content-Type: application/json
 
 {
-    "email": "user3210@gmail.com"
+    "email": "user3210@gmail.com",
+    "password": "user123Password"
 }
+```
+## Get user data
+
+```rest
+GET http://<host-url>/user/getUser/<userid>
+
 ```
 
 ## Contributing
