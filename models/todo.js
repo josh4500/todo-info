@@ -29,5 +29,5 @@ const todoSchema = new mongoose.Schema({
         default: Date.now,
     }
 })
-
+todoSchema.set('toObject', {virtuals: true})
 module.exports = mongoose.model("Todo", todoSchema)

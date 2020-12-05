@@ -4,6 +4,8 @@ const User = require('../models/user')
 const hash = require('pbkdf2-password')()
 const shash = require('shorthash')
 const verifyKey = require('./verifyKey')
+
+
 //Adding a user
 router.post('/addUser', [verifyKey, getOneUser], (req, res) => {
     var password = {}
@@ -35,21 +37,36 @@ router.post('/addUser', [verifyKey, getOneUser], (req, res) => {
    }
 })
 
-//Get user by email
+//Get user by email with authentication
 router.post('/getUser', [verifyKey, getOneUser], async (req, res) => {
-    if (res.verified.success == false) {
-        res.json(res.verified)
-    }
-    else {
-        res.json(res.user)
+    try {
+        if (res.verified.success == false) throw (res.verified)
+        if (req.body.password !== undefined) {
+            hash({ password: req.body.password, salt: res.user[0].password.salt }, function (err, pass, salt, hash) {
+                if (err) throw (err)
+                
+                if (hash === res.user[0].password.hash) {
+                    res.json({ success: true })
+                }
+                else {
+                    res.json({ message: "User authentication failed", success: false })
+                }
+            })
+        }
+        else {
+            throw ({ message: "Unable to process request", success: false })
+        }
+    } catch (err) {
+        res.status(500).json(err)
     }
 })
 
-//Get user by userid
+//Get user by userid without authentication
 router.get('/getUser/:userid', [verifyKey, getOneUser], async (req, res) => {
     try {
         if (res.verified.success == false) throw (res.verified)
         const user = await User.find({ userid: req.params.userid })
+
         res.json(user)
     }catch(err){
         res.status(500).json({message: err.message})

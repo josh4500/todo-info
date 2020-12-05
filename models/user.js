@@ -28,5 +28,6 @@ const userSchema = new mongoose.Schema({
         required: true
     },
 })
+userSchema.set('toObject', {virtuals: true})
 
 module.exports = mongoose.model("User", userSchema)

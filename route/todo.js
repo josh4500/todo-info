@@ -5,7 +5,7 @@ const verifyKey = require('./verifyKey')
 
 //To get all users entry data
 
-// router.get('/', async (req, res) => {
+// router.get('/', verifyKey, async (req, res) => {
 //     const {userid} = req.params
 //     try{
 //         const todos = await Todo.find()
