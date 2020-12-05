@@ -3,12 +3,12 @@ const router = express.Router()
 const User = require('../models/user')
 const hash = require('pbkdf2-password')()
 const shash = require('shorthash')
-
-
+const verifyKey = require('./verifyKey')
 //Adding a user
-router.post('/addUser', getOneUser, (req, res) => {
+router.post('/addUser', [verifyKey, getOneUser], (req, res) => {
     var password = {}
     try {
+        if (res.verified.success == false) throw (res.verified)
         if(res.user.length > 0 ) throw ({message: "User already exist", success: false})
         if (req.body.password !== null && req.body.email !== null) {
             hash({ password: req.body.password }, async function (err, pass, salt, hash) {
@@ -36,13 +36,19 @@ router.post('/addUser', getOneUser, (req, res) => {
 })
 
 //Get user by email
-router.post('/getUser', getOneUser, async (req, res) => {
-    res.json(res.user)
+router.post('/getUser', [verifyKey, getOneUser], async (req, res) => {
+    if (res.verified.success == false) {
+        res.json(res.verified)
+    }
+    else {
+        res.json(res.user)
+    }
 })
 
 //Get user by userid
-router.get('/getUser/:userid', getOneUser, async (req, res) => {
-    try{
+router.get('/getUser/:userid', [verifyKey, getOneUser], async (req, res) => {
+    try {
+        if (res.verified.success == false) throw (res.verified)
         const user = await User.find({ userid: req.params.userid })
         res.json(user)
     }catch(err){
@@ -51,8 +57,9 @@ router.get('/getUser/:userid', getOneUser, async (req, res) => {
 })
 
 //updating user
-router.patch('/updateUser/:userid',  (req, res) => {
+router.patch('/updateUser/:userid', verifyKey,  (req, res) => {
     try {
+        if (res.verified.success == false) throw (res.verified)
         hash({ password: password }, async function (err, pass, salt, hash) {
             if (err) throw err;
             
@@ -73,8 +80,9 @@ router.patch('/updateUser/:userid',  (req, res) => {
 })
 
 //Delete a user
-router.delete('/deleteUser/:userid', getOneUser, async (req, res) => {
+router.delete('/deleteUser/:userid', [verifyKey, getOneUser], async (req, res) => {
     try {
+        if (res.verified.success == false) throw (res.verified)
         const deletedUser = await User.deleteOne({userid: req.params.userid});
         res.json(`User deleted successfully`)
     } catch (err) {

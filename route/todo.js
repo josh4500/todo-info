@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Todo = require('../models/todo')
+const verifyKey = require('./verifyKey')
 
 //To get all users entry data
 
@@ -17,17 +18,19 @@ const Todo = require('../models/todo')
 // })
 
 //Getting all todo
-router.get('/:userid', getAllUserTodo, async (req, res) => {
-    res.json(res.allUserTodo)
+router.get('/:userid', [getAllUserTodo, verifyKey], async (req, res) => {
+    if (res.verified.success == true) res.json(res.allUserTodo)
+    else res.json(res.verified)
 })
 
 //Getting single todo
-router.get('/:userid/:id', getUserTodo, async (req, res) => {
-    res.json(res.userTodo)
+router.get('/:userid/:id', [verifyKey, getUserTodo], async (req, res) => {
+    if (res.verified.success == true) res.json(res.userTodo)
+    else res.json(res.verified)
 })
 
 //Creating one todo
-router.post('/addTodo', async (req, res) => {
+router.post('/addTodo', verifyKey, async (req, res) => {
     const newTodo = new Todo({
         userid: req.body.userid,
         description: req.body.description,
@@ -35,16 +38,17 @@ router.post('/addTodo', async (req, res) => {
         isTodo: req.body.isTodo,
         todoList: req.body.todoList
     })
-    try{
+    try {
+        if (res.verified.success == false) throw (res.verified)
         const sendNewTodo = await newTodo.save()
         res.status(201).json(sendNewTodo)
     } catch (err){
-        res.status(400).json({message: `Unable to save data: ${err}`, objectSent: req.body})
+        res.status(400).json({message: `Unable to save data`, error: err, objectSent: req.body})
     }
 })
 
 //updating one todo
-router.post('/update/:userid/:id', async (req, res) => {
+router.post('/update/:userid/:id', verifyKey, async (req, res) => {
     let title, isTodo, description, todoList
     if(req.body.title !== null){
         title = req.body.title
@@ -58,7 +62,8 @@ router.post('/update/:userid/:id', async (req, res) => {
     if(req.body.todoList !== []){
         todoList = req.body.todoList
     }
-    try{
+    try {
+        if (res.verified.success == false) throw (res.verified)
         const updatedTodo = await Todo.updateOne({userid: req.params.userid, _id: req.params.id}, {title, isTodo, description, todoList})
         res.json({message: `Todo has been updated successfully ${updatedTodo}`, data: req.body, success: true})
     }catch(err){
@@ -67,8 +72,9 @@ router.post('/update/:userid/:id', async (req, res) => {
 })
 
 //deleting one todo
-router.delete('/delete/:userid/:id', async (req, res) => {
-    try{
+router.delete('/delete/:userid/:id', verifyKey, async (req, res) => {
+    try {
+        if (res.verified.success == false) throw (res.verified)
         const deleteTodo = await Todo.remove({userid: req.params.userid, _id: req.params.id})
         res.json({message: "Deleted successfully", success: true})
     }catch(err){
@@ -77,8 +83,9 @@ router.delete('/delete/:userid/:id', async (req, res) => {
 })
 
 //deleting All user todo
-router.delete('/delete/:userid', async (req, res) => {
-    try{
+router.delete('/delete/:userid', verifyKey, async (req, res) => {
+    try {
+        if (res.verified.success == false) throw (res.verified)
         const deleteAllUserTodo = await Todo.remove({userid: req.params.userid})
         res.json({message: "Deleted all user TODO successfully", success: true})
     }catch(err){
