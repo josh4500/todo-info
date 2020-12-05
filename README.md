@@ -68,6 +68,14 @@ DELETE  http://<host-url>/todo/delete/<userid>/<todo-id>
 
 ```rest
 POST http://<host-url>/user/addUser
+Content-Type: application/json
+
+{
+    "userid": "user321",
+    "username": "Joshua",
+    "password": "davinci4500",
+    "email": "user321@gmail.com"
+}
 
 ```
 
@@ -78,7 +86,7 @@ POST http://<host-url>/user/getUser
 Content-Type: application/json
 
 {
-    "email": "davinci4600@gmail.com"
+    "email": "user3210@gmail.com"
 }
 ```
 
