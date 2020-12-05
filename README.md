@@ -75,7 +75,11 @@ POST http://<host-url>/user/addUser
 
 ```rest
 POST http://<host-url>/user/getUser
+Content-Type: application/json
 
+{
+    "email": "davinci4600@gmail.com"
+}
 ```
 
 ## Contributing
