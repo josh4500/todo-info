@@ -4,13 +4,24 @@
 
 Connect to app with REST API
 
+## At the end of request string add your API KEY to request string
+
+Example
+
+```rest
+GET http://example.com/todo/userid?key=API_KEY
+
+```
+
 ## Get all User todo
+
 ```rest
 GET http://<host-url>/todo/<userid>
 
 ```
 
 ## Post new Todo
+
 ```rest
 POST http://<host-url>/todo/addTodo
 Content-Type: application/json
@@ -24,11 +35,14 @@ Content-Type: application/json
 }
 
 ```
+
 ## Get single todo
+
 ```rest
 GET http://<host-url>/todo/<userid>/<todo-id>
 
 ```
+
 ## Update a todo/info
 
 ```rest
@@ -45,8 +59,23 @@ Content-Type: application/json
 ```
 
 ## Delete an entry from the todo
+
 ```rest
 DELETE  http://<host-url>/todo/delete/<userid>/<todo-id>
+```
+
+## Add new user
+
+```rest
+POST http://<host-url>/user/addUser
+
+```
+
+## Get user data
+
+```rest
+POST http://<host-url>/user/getUser
+
 ```
 
 ## Contributing
