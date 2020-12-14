@@ -4,6 +4,34 @@
 
 Connect to app with REST API
 
+###
+
+Request and Response Data Schema
+
+```js
+//This is the user schema. All fields are returned on getUser POST http://<host-url>/user/getUser
+const userSchema = {
+  userid: {
+    type: String,
+  },
+  username: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: {
+      hash: String,
+      salt: String,
+    },
+    required: true,
+  },
+};
+```
+
 ## At the end of request string add your API KEY to request string
 
 Example
