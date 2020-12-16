@@ -10,7 +10,7 @@
   padding: 10%;
   /* border: 1px solid black; */
   border-radius: 20px;
-  box-shadow: 5px 5px 5px 5px #111111;
+  /* box-shadow: 5px 5px 5px 5px #111111; */
 }
 .authInput {
   height: 25px;
