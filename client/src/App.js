@@ -1,14 +1,33 @@
-import React, { useContext } from "react";
-import { UserProfile } from "./components";
-import AuthContext, { ThemeProvider, NoteProvider } from "./context";
+import React from "react";
+import Authentication from "./Authentication";
+import { UserProfile, NotePage } from "./components";
+import { AuthContext, ThemeContext, NoteContext } from "./context";
 import "./css/app.css";
 
 const App = () => {
-  const { user, login, logout } = useContext(AuthContext);
   return (
-    <div id="app">
-      <UserProfile />
-    </div>
+    <AuthContext.Consumer>
+      {({ user }) => (
+        <ThemeContext.Consumer>
+          {(theme) => (
+            <NoteContext.Consumer>
+              {(note) => {
+                return user.active ? (
+                  <div id="app">
+                    <UserProfile user={user} />
+                    <NotePage />
+                  </div>
+                ) : (
+                  <div id="app">
+                    <Authentication />
+                  </div>
+                );
+              }}
+            </NoteContext.Consumer>
+          )}
+        </ThemeContext.Consumer>
+      )}
+    </AuthContext.Consumer>
   );
 };
 
