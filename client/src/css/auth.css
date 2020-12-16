@@ -1,0 +1,37 @@
+#authContainer {
+  margin: 0 auto;
+  padding: 10%;
+  width: 30%;
+  height: 55%;
+}
+.authForm {
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px #111111;
+}
+.authInput {
+  height: 25px;
+  padding: 5px 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: calibri;
+  color: #333333;
+}
+#submitBtn {
+  background-color: seagreen;
+  color: white;
+  font-size: 18px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+}
+label {
+  margin: 5px 0;
+  font-size: 18px;
+  font-family: calibri;
+}

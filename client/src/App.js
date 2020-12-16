@@ -13,7 +13,7 @@ const App = () => {
             <NoteContext.Consumer>
               {(note) => {
                 return user.active ? (
-                  <div id="app">
+                  <div id={user.active ? "app" : "authenticate"}>
                     <UserProfile user={user} />
                     <NotePage />
                   </div>
