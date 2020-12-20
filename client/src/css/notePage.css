@@ -25,6 +25,11 @@
   display: grid;
   background-color: #2f415d;
   border-radius: 10px;
+  padding: 8px;
+  font-family: cursive;
+  color: #f1f1f1;
+  font-size: 12px;
+  box-shadow: 2px 2px 1px 0 #1d2838, -2px -2px 1px 0 #1d2838;
 }
 .note-btn {
   background: transparent;

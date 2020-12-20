@@ -11,15 +11,15 @@ const App = () => {
         <ThemeContext.Consumer>
           {(theme) => (
             <NoteContext.Consumer>
-              {(note) => {
+              {(notes) => {
                 return user.active ? (
                   <div id="app">
-                    <UserProfile user={user} />
-                    <NotePage />
+                    <UserProfile user={user} notes={notes} theme={theme} />
+                    <NotePage notes={notes} theme={theme} />
                   </div>
                 ) : (
                   <div id="authenticate">
-                    <Authentication />
+                    <Authentication user={user} />
                   </div>
                 );
               }}
