@@ -4,6 +4,7 @@ import "../css/auth.css";
 
 const Auth = () => {
   const [page, setPage] = useState("Login");
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [newUser, setNewUser] = useState({
     username: "",
     email: "",
@@ -12,31 +13,51 @@ const Auth = () => {
   });
 
   const onChange = (e) => {
-    setNewUser((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-    console.log(newUser);
+    if (page === "Login") {
+      setLoginData((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }));
+      console.log(loginData);
+    } else {
+      setNewUser((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }));
+      console.log(newUser);
+    }
   };
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log(loginData);
   };
   return (
     <div id="auth-container">
-      <form className="auth-form" onSubmit={onSubmit}>
+      <h2
+        style={{
+          color: "#252525",
+          textAlign: "center",
+          fontFamily: "cursive",
+        }}
+      >
+        {page === "Login" ? "Login" : "Create an account"}
+      </h2>
+      <form method="POST" className="auth-form" onSubmit={onSubmit} noValidate>
         {page === "Login" ? (
           <>
             <Input
-              className="auth-input"
+              className="auth-box"
               name="email"
               type="email"
               placeholder="Email address"
+              onChange={onChange}
             />
             <Input
-              className="auth-input"
+              className="auth-box"
               name="password"
               type="password"
               placeholder="Password"
+              onChange={onChange}
             />
             <div>
               <Input name="keepLoggin" type="checkbox" />
@@ -48,28 +69,28 @@ const Auth = () => {
         ) : (
           <>
             <Input
-              className="auth-input"
+              className="auth-box"
               name="username"
               type="text"
               placeholder="Username"
               onChange={onChange}
             />
             <Input
-              className="auth-input"
+              className="auth-box"
               name="email"
               type="email"
               placeholder="Email address"
               onChange={onChange}
             />
             <Input
-              className="auth-input"
+              className="auth-box"
               name="password"
               type="password"
               placeholder="Password"
               onChange={onChange}
             />
             <Input
-              className="auth-input"
+              className="auth-box"
               name="cPassword"
               type="password"
               placeholder="Confirm password"

@@ -1,22 +1,23 @@
 #auth-container {
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 30px;
   width: 30%;
   padding: 5%;
   border-radius: 10px;
+  /* border: 1px solid rgb(173, 173, 173); */
+  box-shadow: 3px 3px 10px 0 rgb(218, 218, 218),
+    -3px -3px 10px 0 rgb(218, 218, 218);
 }
 .auth-form {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid black; */
   border-radius: 20px;
   box-sizing: border-box;
 }
-.auth-input {
+.auth-box {
   display: inline-block;
+  box-sizing: border-box;
   width: 100%;
-  padding: 0 15px;
-  font-size: 20px;
   box-sizing: border-box;
   line-height: 50px;
   color: #999999;
@@ -28,6 +29,16 @@
   outline: none;
   transition: all 0.3s ease;
   margin-bottom: 20px;
+}
+.auth-input {
+  border: none;
+  font-size: 20px;
+  width: 85%;
+  color: #222333;
+  height: 100%;
+  padding: 0 15px;
+  background-color: white;
+  outline: none;
 }
 form input[type="email"]:focus,
 form input[type="email"]:active,
@@ -42,6 +53,7 @@ form input[type="password"]:active {
   margin-top: 10px;
 }
 .change-page-btn {
+  font-size: 14px;
   border: none;
   outline: none;
   background: transparent;
@@ -56,10 +68,23 @@ form input[type="password"]:active {
   box-sizing: border-box;
   width: 100%;
   color: white;
-  font-size: 18px;
+  font-size: 22px;
+  /* font-weight: bold; */
   height: 50px;
-  border: none;
+  border: 1px solid seagreen;
+  box-shadow: inset 0 1px 0 0 rgb(40, 122, 76);
+  text-shadow: 0 -2px 0 0 rgb(40, 122, 76);
   outline: none;
   border-radius: 5px;
   margin-top: 20px;
+}
+.validated {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: 1px solid red;
+  height: 48px;
+  width: 20px;
+  background-image: url("C:\Users\AJOSH\Projects\todo-info-rest\client\src\components\Input\icons8_cancel_24px.png");
+  background-repeat: no-repeat;
 }

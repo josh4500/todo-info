@@ -1,10 +1,13 @@
 #profileDetails {
-  width: 17%;
+  width: 20%;
   height: 100%;
   color: white;
   font-size: 15px;
   font-weight: 100;
-  background-color: #1f293b;
+  background-color: #273349;
+  border: none;
+  border-left: 1px solid #273349;
+  box-shadow: 7px 0 5px 0 #192130, inset 10px 0 #273349;
 }
 #userDetails {
   width: inherit;
@@ -14,13 +17,28 @@
   /* border-bottom: 0.5px solid white; */
 }
 .todoDetails {
-  padding: 5px 0;
-  border: none;
+  padding: 5px 15px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid rgb(233, 229, 229);
+}
+#userTodoInfo {
+  margin-bottom: 5px;
 }
 .todoDetails:hover {
   border: 1px solid white;
 }
 #addNoteBtn {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+  color: white;
+  height: 50px;
+  border: 1px solid #5ea96d;
+  text-shadow: 0 -10px 0 0 rgb(40, 122, 76);
+  outline: none;
+  margin-top: 20px;
   padding: 5% 0 5%;
   background-color: #5ea96d;
   text-align: center;

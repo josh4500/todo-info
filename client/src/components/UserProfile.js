@@ -6,7 +6,7 @@ const UserProfile = ({ user }) => {
   return (
     <div id="profileDetails">
       <div id="userDetails">
-        {/* <Image /> */}
+        <div></div>
         <div id="username">AJOSH4500</div>
       </div>
       <div id="userTodoInfo">
@@ -14,12 +14,13 @@ const UserProfile = ({ user }) => {
           <p>You have the total of 12 {} notes</p>
         </div>
         <div id="n0_todo" className="todoDetails">
-          <p> Total of 5 {} todo</p>
+          <p>Total of 5 {} todo</p>
         </div>
         <div id="toComplete" className="todoDetails">
           <p>Remaining 3 more task to accomplish</p>
         </div>
-        <div id="addNoteBtn">ADD NOTE</div>
+        <button id="addNoteBtn">ADD NOTE</button>
+        <div>Settings</div>
       </div>
     </div>
   );

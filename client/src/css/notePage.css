@@ -1,0 +1,33 @@
+#notePage {
+  background-color: #1f293b;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* border: 1px solid blue; */
+}
+#head {
+  height: 20px;
+  width: 100%;
+  border: 1px solid red;
+}
+#body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 0.8em;
+  height: inherit;
+  padding: 20px;
+  /* border: 1px solid blue; */
+}
+#note {
+  display: grid;
+  background-color: #2f415d;
+  border-radius: 10px;
+}
+.note-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+}
