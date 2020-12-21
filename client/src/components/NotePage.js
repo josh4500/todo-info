@@ -8,7 +8,7 @@ const NotePage = ({ notes, theme }) => (
       <div>Note</div>
     </div>
     <div id="body">
-      {notes.notes.map((note, index) => (
+      {notes.map((note, index) => (
         <Note noteNode={note} index={index} key={index} />
       ))}
       {console.log(notes)}
