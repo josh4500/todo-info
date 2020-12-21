@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 const NoteContext = React.createContext();
 
 export const NoteProvider = ({ children }) => {
-  const testData = [
+  const [testData, setTestData] = useState([
     {
       _id: "5fc52c63923593276414d461",
       userid: "davinci4500",
       description: "Hey our unknown todo",
       title: "Mubarack",
-      isTodo: false,
+      isTodo: true,
       todoList: [
+        {
+          _id: "5fc64666b12ed22370774a5d",
+          todo: "Going back to church",
+          checked: false,
+        },
         {
           _id: "5fc64666b12ed22370774a5d",
           todo: "Going back to church",
@@ -68,7 +73,7 @@ export const NoteProvider = ({ children }) => {
       date: "2020-12-01T14:06:09.993Z",
       __v: 0,
     },
-  ];
+  ]);
   return (
     <NoteContext.Provider value={{ notes: testData }}>
       {children}

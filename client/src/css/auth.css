@@ -8,6 +8,18 @@
   box-shadow: 3px 3px 10px 0 rgb(218, 218, 218),
     -3px -3px 10px 0 rgb(218, 218, 218);
 }
+#auth-container > h2::selection,
+#submit-btn::selection,
+.keepLoggin::selection,
+.change-page::selection,
+.change-page-btn::selection,
+.auth-input::selection {
+  background-color: transparent;
+}
+.auth-box::selection,
+.auth-input::selection {
+  color: #222333;
+}
 .auth-form {
   display: flex;
   flex-direction: column;
