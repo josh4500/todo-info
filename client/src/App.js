@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Authentication from "./Authentication";
 import { UserProfile, NotePage } from "./components";
 import { ThemeContext } from "./context";
@@ -7,6 +7,8 @@ import "./css/app.css";
 const App = () => {
   const [user, setUser] = useState({ active: true, data: {} });
   const [notes, setNotes] = useState([]);
+  const [theme, setTheme] = useState({});
+  useEffect(() => {}, [user, notes]);
   return user.active ? (
     <div id="app">
       <UserProfile user={user} notes={notes} theme={theme} />
