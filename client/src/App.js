@@ -8,22 +8,18 @@ const App = () => {
   const [user, setUser] = useState({ active: true, data: {} });
   return (
     <ThemeContext.Consumer>
-      {(theme) => (
-        <NoteContext.Consumer>
-          {(notes) => {
-            return user.active ? (
-              <div id="app">
-                <UserProfile user={user} notes={notes} theme={theme} />
-                <NotePage notes={notes} theme={theme} />
-              </div>
-            ) : (
-              <div id="authenticate">
-                <Authentication user={user} />
-              </div>
-            );
-          }}
-        </NoteContext.Consumer>
-      )}
+      {(theme) => {
+        return user.active ? (
+          <div id="app">
+            <UserProfile user={user} notes={notes} theme={theme} />
+            <NotePage notes={notes} theme={theme} />
+          </div>
+        ) : (
+          <div id="authenticate">
+            <Authentication user={user} />
+          </div>
+        );
+      }}
     </ThemeContext.Consumer>
   );
 };
