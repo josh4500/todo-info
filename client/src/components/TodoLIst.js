@@ -4,8 +4,8 @@ import Todo from "./Todo";
 const TodoList = ({ todoList }) => {
   return (
     <div className="todoList">
-      {todoList.map((todo) => (
-        <Todo todo={todo.todo} isDone={todo.checked} />
+      {todoList.map((todo, index) => (
+        <Todo key={index} todo={todo.todo} isDone={todo.checked} />
       ))}
     </div>
   );

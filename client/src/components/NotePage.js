@@ -9,9 +9,8 @@ const NotePage = ({ notes, theme }) => (
     </div>
     <div id="body">
       {notes.map((note, index) => (
-        <Note noteNode={note} index={index} key={index} />
+        <Note noteNode={note} key={index} />
       ))}
-      {console.log(notes)}
     </div>
   </div>
 );

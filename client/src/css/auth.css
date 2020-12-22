@@ -28,7 +28,6 @@
 }
 .auth-box {
   display: inline-block;
-  box-sizing: border-box;
   width: 100%;
   box-sizing: border-box;
   line-height: 50px;
@@ -44,6 +43,7 @@
 }
 .auth-input {
   border: none;
+  box-sizing: border-box;
   font-size: 20px;
   width: 85%;
   color: #222333;

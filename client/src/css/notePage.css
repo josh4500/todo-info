@@ -15,7 +15,7 @@
 #body {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  grid-auto-rows: auto;
+  grid-auto-columns: auto;
   grid-auto-rows: 200px;
   gap: 0.8em;
   height: inherit;
@@ -32,10 +32,12 @@
   color: #f1f1f1;
   font-size: 12px;
   box-shadow: 2px 2px 1px 0 #212c3d, -2px -2px 1px 0 #212c3d;
+  overflow: hidden;
 }
 .note-controls {
   display: flex;
   flex-direction: row;
+  margin-bottom: 3px;
 }
 .date {
   flex: 1 60%;
@@ -45,9 +47,29 @@
   background: transparent;
   border: none;
   outline: none;
+  padding: 3px;
+  opacity: 0.8;
+  cursor: pointer;
   /* border: 1px solid red; */
+}
+.desc {
+  flex: 2 20%;
+  margin-bottom: 7px;
+}
+.todo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 3px;
+}
+.todo-item {
+  margin-left: 3px;
 }
 .todoList {
   display: flex;
   flex-direction: column;
+  flex: 1 40%;
+  margin-top: 5px;
 }
