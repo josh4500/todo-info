@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from "react";
 
 const Input = ({
   ref,
+  style,
   type,
   name,
   className,
   placeholder,
+  value,
   onChange,
   onKeyDown,
 }) => {
@@ -17,8 +19,10 @@ const Input = ({
     <div className={className}>
       <input
         ref={InputRef}
+        style={style}
         className="auth-input"
         name={name}
+        value={value}
         type={type}
         placeholder={placeholder}
         onChange={onChange}

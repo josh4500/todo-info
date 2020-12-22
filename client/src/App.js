@@ -5,7 +5,7 @@ import { ThemeContext } from "./context";
 import "./css/app.css";
 
 const App = () => {
-  const [user, setUser] = useState({ active: true, data: {} });
+  const [user, setUser] = useState({ active: false, data: {} });
   const [notes, setNotes] = useState([
     {
       _id: "5fc52c63923593276414d461",

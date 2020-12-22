@@ -31,7 +31,7 @@
   font-family: cursive;
   color: #f1f1f1;
   font-size: 12px;
-  box-shadow: 2px 2px 1px 0 #1d2838, -2px -2px 1px 0 #1d2838;
+  box-shadow: 2px 2px 1px 0 #212c3d, -2px -2px 1px 0 #212c3d;
 }
 .note-controls {
   display: flex;

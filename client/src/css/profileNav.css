@@ -6,26 +6,24 @@
   font-weight: 100;
   background-color: #19202e;
   border: none;
-  /* border-left: 1px solid #273349; */
-  /* box-shadow: inset -10px 0 10px 0 #1c2230; */
 }
 #userDetails {
   width: inherit;
   width: 100%;
   height: 25%;
   border: none;
-  /* border-bottom: 0.5px solid white; */
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.842);
 }
 .todoDetails {
-  padding: 5px 15px;
+  padding: 5px;
   border: 1px solid transparent;
-  border-bottom: 1px solid rgb(233, 229, 229);
+  /* border-bottom: 1px solid rgb(233, 229, 229); */
 }
 #userTodoInfo {
   margin-bottom: 5px;
 }
 .todoDetails:hover {
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 #addNoteBtn {
   position: relative;
@@ -42,4 +40,10 @@
   padding: 5% 0 5%;
   background-color: #5ea96d;
   text-align: center;
+}
+#stts {
+  position: absolute;
+  bottom: 10px;
+}
+#stts::before {
 }

@@ -2,7 +2,6 @@ import React from "react";
 import "../css/profileNav.css";
 
 const UserProfile = ({ user }) => {
-  // const { user, login, logout } = auth;
   return (
     <div id="profileDetails">
       <div id="userDetails">
@@ -20,8 +19,8 @@ const UserProfile = ({ user }) => {
           <p>Remaining 3 more task to accomplish</p>
         </div>
         <button id="addNoteBtn">ADD NOTE</button>
-        <div>Settings</div>
       </div>
+      <div id="stts">Settings</div>
     </div>
   );
 };
