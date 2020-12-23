@@ -1,8 +1,9 @@
 import React from "react";
 import "../css/profileNav.css";
 import userImg from "../icons/user.png";
+import settsIcon from "../icons/settings.png";
 
-const UserProfile = ({ user, notes }) => {
+const UserProfile = ({ user, notes, toggleSettings }) => {
   return (
     <div id="profileDetails" style={{ fontFamily: "cursive" }}>
       <div id="userDetails">
@@ -44,7 +45,10 @@ const UserProfile = ({ user, notes }) => {
         </div>
         <button id="addNoteBtn">ADD NOTE</button>
       </div>
-      <div id="stts">Settings</div>
+      <button id="stts" onClick={() => toggleSettings()}>
+        <img src={settsIcon} alt="" />
+        Settings
+      </button>
     </div>
   );
 };

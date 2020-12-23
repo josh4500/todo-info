@@ -16,3 +16,36 @@ body {
   width: 100%;
   height: 100%;
 }
+#settings {
+  position: absolute;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 20%;
+  left: 25%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #19202e;
+  box-shadow: 10px 10px 20px 0 #10141d, -10px -10px 20px 0 #10141d;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
+#editUser {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+}
+.settings-btn {
+  padding: 10px;
+  border: 2px solid red;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  background: rgb(221, 98, 76);
+}
+#update-btn {
+  border-color: seagreen;
+  background-color: rgb(62, 143, 97);
+}

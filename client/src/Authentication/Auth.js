@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Input } from "../components";
 import "../css/auth.css";
 
-const Auth = () => {
+const Auth = ({ control }) => {
   const [page, setPage] = useState("Login");
   const [loginData, setLoginData] = useState({
     email: "",
@@ -32,9 +32,17 @@ const Auth = () => {
     e.preventDefault();
     //TODO
     if (page === "Login") {
-      console.log(loginData);
+      control.login({
+        userid: 1234,
+        username: "ajosh4500",
+        email: "example@gmail.com",
+      });
     } else {
-      console.log(newUser);
+      control.login({
+        userid: 1234,
+        username: "ajosh4500",
+        email: "example@gmail.com",
+      });
     }
   };
   return (
@@ -70,7 +78,7 @@ const Auth = () => {
             <div>
               <Input
                 name="keepLoggin"
-                type="checkbox"
+                type="radio"
                 value={loginData.keepSignedIn}
               />
               <label className="keepLoggin" htmlFor="keepLoggin">
@@ -97,6 +105,7 @@ const Auth = () => {
               onChange={onChange}
             />
             <Input
+              id="sPass"
               className="auth-box"
               name="password"
               value={newUser.password}

@@ -4,7 +4,7 @@ import edit from "../icons/edit.png";
 import ndelete from "../icons/delete.png";
 import share from "../icons/share.png";
 
-const Note = ({ noteNode }) => {
+const Note = ({ noteNode, noteFunctions }) => {
   let date =
     new Date(noteNode.date).toDateString() +
     " " +
@@ -33,11 +33,20 @@ const Note = ({ noteNode }) => {
           width="16px"
           height="16px"
           alt=""
+          onClick={() => noteFunctions.deleteNote(noteNode._id)}
         />
       </div>
       <div className="noteContent">
         <div className="desc">{noteNode.description}</div>
-        {noteNode.isTodo ? <TodoList todoList={noteNode.todoList} /> : ""}
+        {noteNode.isTodo ? (
+          <TodoList
+            noteid={noteNode._id}
+            toggleCheck={noteFunctions.checkTodo}
+            todoList={noteNode.todoList}
+          />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

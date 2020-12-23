@@ -12,13 +12,8 @@
 #submit-btn::selection,
 .keepLoggin::selection,
 .change-page::selection,
-.change-page-btn::selection,
-.auth-input::selection {
+.change-page-btn::selection {
   background-color: transparent;
-}
-.auth-box::selection,
-.auth-input::selection {
-  color: #222333;
 }
 .auth-form {
   display: flex;
@@ -27,8 +22,10 @@
   box-sizing: border-box;
 }
 .auth-box {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   width: 100%;
+  align-items: center;
   box-sizing: border-box;
   line-height: 50px;
   color: #999999;
@@ -91,12 +88,11 @@ form input[type="password"]:active {
   margin-top: 20px;
 }
 .validated {
-  display: inline-block;
   box-sizing: border-box;
   margin: 0 auto;
-  border: 1px solid red;
-  height: 48px;
-  width: 20px;
-  background-image: url("C:\Users\AJOSH\Projects\todo-info-rest\client\src\components\Input\icons8_cancel_24px.png");
-  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  border: none;
+  outline: none;
+  background: transparent;
 }
