@@ -40,7 +40,10 @@
 }
 #stts {
   position: absolute;
-  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 10px;
   bottom: 20px;
   padding: 5px;
   cursor: pointer;
@@ -51,9 +54,13 @@
   font-family: inherit;
   text-align: center;
 }
-#stts::before {
-  position: absolute;
-  content: "";
+#stts-btn {
+  padding: 7px;
+  cursor: pointer;
+  outline: none;
   border: none;
-  background: url("../icons/settings.png");
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  text-align: center;
 }

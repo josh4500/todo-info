@@ -45,10 +45,10 @@ const UserProfile = ({ user, notes, toggleSettings }) => {
         </div>
         <button id="addNoteBtn">ADD NOTE</button>
       </div>
-      <button id="stts" onClick={() => toggleSettings()}>
+      <div id="stts" onClick={() => toggleSettings()}>
         <img src={settsIcon} alt="" />
-        Settings
-      </button>
+        <div id="stts-btn">Settings</div>
+      </div>
     </div>
   );
 };

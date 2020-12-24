@@ -2,23 +2,16 @@ import React from "react";
 import Input from "./Input/Input";
 
 const Settings = ({ user, toggle, logout }) => {
-  const display = toggle ? "flex" : "none";
+  const display = toggle ? "block" : "none";
   const height = toggle ? "60%" : "50%";
   const width = toggle ? "50%" : "40%";
   return (
     <div id="settings" style={{ display, height, width }}>
       <div id="editUser">
         <form method="POST">
-          <Input
-            type="text"
-            name="Username"
-            style={{
-              borderRadius: "5px",
-              padding: "5px 10px",
-              color: "#666666",
-            }}
-            placeholder="username"
-          />
+          <input type="text" name="username" placeholder="Username" />
+          <input type="email" name="email" placeholder="Email Address" />
+          <input type="password" name="password" placeholder="Password" />
           <button id="update-btn" className="settings-btn">
             UPDATE
           </button>
