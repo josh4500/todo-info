@@ -276,7 +276,7 @@ const App = () => {
   const [noteEdit, setNoteEdit] = useState({
     display: false,
     noteContent: {},
-    isEdit: "false",
+    isEdit: false,
   });
 
   useEffect(() => {
@@ -323,9 +323,34 @@ const App = () => {
       }),
     ]);
   };
-  const bg_blur_zIndex = sett ? 98 : -100;
+  const bg_blur_zIndex = sett || noteEdit.display ? 98 : -100;
   const updateProfile = (data) => {
     return setUser((prevState) => ({ ...prevState, data }));
+  };
+  const toggleNoteEdit = (isEdit, noteContent) => {
+    if (isEdit === true) {
+      setNoteEdit((prevState) => ({
+        ...prevState,
+        display: true,
+        isEdit: true,
+        noteContent,
+      }));
+      console.log("hello");
+    } else {
+      noteEdit.display === false
+        ? setNoteEdit((prevState) => ({
+            ...prevState,
+            display: true,
+            isEdit: false,
+            noteContent: {},
+          }))
+        : setNoteEdit((prevState) => ({
+            ...prevState,
+            display: false,
+            isEdit: false,
+            noteContent: {},
+          }));
+    }
   };
 
   return user.active ? (
@@ -338,10 +363,12 @@ const App = () => {
           toggleSettings={() => {
             sett === false ? togSett(true) : togSett(false);
           }}
+          toggleNoteEdit={toggleNoteEdit}
         />
         <NotePage
           notes={notes}
           theme={theme}
+          toggleNoteEdit={toggleNoteEdit}
           noteFunctions={{ deleteNote, checkTodo }}
         />
       </div>
@@ -366,7 +393,11 @@ const App = () => {
           sett === false ? togSett(true) : togSett(false);
         }}
       />
-      <NoteEditor note={notes} toggle={noteEdit} />
+      <NoteEditor
+        note={notes}
+        toggle={noteEdit}
+        toggleNoteEdit={toggleNoteEdit}
+      />
     </>
   ) : (
     <div id="authenticate">

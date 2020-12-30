@@ -2,7 +2,7 @@ import React from "react";
 import Note from "./Note";
 import "../css/notePage.css";
 
-const NotePage = ({ notes, theme, noteFunctions }) => {
+const NotePage = ({ notes, theme, noteFunctions, toggleNoteEdit }) => {
   // const nLen = notes.length;
   // let gridShape = [];
   // let m = 0;
@@ -22,7 +22,12 @@ const NotePage = ({ notes, theme, noteFunctions }) => {
       <div id="body">
         {notes.map((note, index) => {
           return (
-            <Note noteNode={note} key={index} noteFunctions={noteFunctions} />
+            <Note
+              noteNode={note}
+              key={index}
+              noteFunctions={noteFunctions}
+              toggleNoteEdit={toggleNoteEdit}
+            />
           );
         })}
       </div>

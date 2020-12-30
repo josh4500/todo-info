@@ -4,7 +4,7 @@ import edit from "../icons/edit.png";
 import ndelete from "../icons/delete.png";
 import share from "../icons/share.png";
 
-const Note = ({ noteNode, noteFunctions }) => {
+const Note = ({ noteNode, noteFunctions, toggleNoteEdit }) => {
   let date =
     new Date(noteNode.date).toDateString() +
     " " +
@@ -19,6 +19,8 @@ const Note = ({ noteNode, noteFunctions }) => {
           width="16px"
           height="16px"
           alt=""
+          title="Edit"
+          onClick={() => toggleNoteEdit(true, noteNode)}
         />
         <img
           className="share note-btn"

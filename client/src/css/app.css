@@ -21,6 +21,7 @@ body {
   transition-delay: 0.2s;
   transition: all 0.5s ease;
 }
+#note-editor,
 #settings {
   position: absolute;
   opacity: 0;
@@ -38,6 +39,26 @@ body {
   box-shadow: 10px 10px 20px 0 #10141d, -10px -10px 20px 0 #10141d;
   transform: scale(0.5);
   transition: all 0.5s ease;
+}
+#note-editor {
+  display: block;
+  top: 15%;
+  left: 30%;
+  color: white;
+  height: 70%;
+  width: 40%;
+  overflow: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  transform: scale(0.5);
+  transition: all 0.5s ease;
+}
+#note-editor-form {
+  padding: 20px;
+}
+#note-editor::-webkit-scrollbar {
+  display: none;
 }
 #editUser {
   margin-left: 0;
@@ -62,7 +83,7 @@ body {
   box-shadow: 3px 3px 5px 0 #11151d;
   /* box-sizing: border-box; */
 }
-.settings-btn {
+.action-btn {
   padding: 10px;
   border: 2px solid rgb(235, 47, 47);
   color: white;
@@ -71,7 +92,7 @@ body {
   border-radius: 5px;
   background: rgb(221, 98, 76);
 }
-#update-btn {
+.green-action {
   border-color: seagreen;
   background-color: rgb(62, 143, 97);
 }

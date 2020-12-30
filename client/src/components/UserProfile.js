@@ -3,7 +3,7 @@ import "../css/profileNav.css";
 import userImg from "../icons/user.png";
 import settsIcon from "../icons/settings.png";
 
-const UserProfile = ({ user, notes, toggleSettings }) => {
+const UserProfile = ({ user, notes, toggleSettings, toggleNoteEdit }) => {
   return (
     <div id="profileDetails" style={{ fontFamily: "Nunito-Regular" }}>
       <div id="userDetails">
@@ -43,7 +43,9 @@ const UserProfile = ({ user, notes, toggleSettings }) => {
             more tasks to accomplish
           </p>
         </div>
-        <button id="addNoteBtn">ADD NOTE</button>
+        <button id="addNoteBtn" onClick={toggleNoteEdit}>
+          ADD NOTE
+        </button>
       </div>
       <div id="stts" onClick={() => toggleSettings()}>
         <img src={settsIcon} alt="" />

@@ -57,15 +57,13 @@ const Settings = ({ user, toggle, logout, control, toggleSettings }) => {
             placeholder="Password"
             onChange={onChange}
           />
-          <button id="update-btn" className="settings-btn">
-            UPDATE
-          </button>
+          <button className="action-btn green-action">UPDATE</button>
         </form>
       </div>
       <div>
         <button
           id="logout-btn"
-          className="settings-btn"
+          className="action-btn"
           onClick={() => logout(user.data.userid)}
         >
           LOG OUT
