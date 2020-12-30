@@ -5,7 +5,7 @@ import settsIcon from "../icons/settings.png";
 
 const UserProfile = ({ user, notes, toggleSettings }) => {
   return (
-    <div id="profileDetails" style={{ fontFamily: "cursive" }}>
+    <div id="profileDetails" style={{ fontFamily: "Nunito-Regular" }}>
       <div id="userDetails">
         <img
           style={{ display: "block", margin: "auto", width: "63%" }}

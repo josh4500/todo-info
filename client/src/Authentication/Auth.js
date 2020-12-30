@@ -51,7 +51,7 @@ const Auth = ({ control }) => {
         style={{
           color: "#252525",
           textAlign: "center",
-          fontFamily: "cursive",
+          fontFamily: "inherit",
         }}
       >
         {page === "Login" ? "Login" : "Create an account"}

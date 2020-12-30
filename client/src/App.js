@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Authentication from "./Authentication";
 import { UserProfile, NotePage, Settings, NoteEditor } from "./components";
+import "./css/index.css";
 import * as Helper from "./helper";
 import "./css/app.css";
 
