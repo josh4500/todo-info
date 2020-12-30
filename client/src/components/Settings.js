@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import closeIcon from "../icons/close_window.png";
 
-const Settings = ({ user, toggle, logout, control }) => {
+const Settings = ({ user, toggle, logout, control, toggleSettings }) => {
   const opacity = toggle ? 1 : 0;
   const transform = toggle ? "scale(1)" : "scale(0.5)";
   const zIndex = toggle ? 99 : -99;
@@ -20,6 +21,19 @@ const Settings = ({ user, toggle, logout, control }) => {
     <div id="settings" style={{ opacity, transform, zIndex }}>
       <h1>Account settings</h1>
       <h4>Update account settings</h4>
+      <img
+        src={closeIcon}
+        style={{
+          height: "25px",
+          width: "25px",
+          position: "absolute",
+          right: "30px",
+          top: "15px",
+        }}
+        alt="Close Window"
+        title="Close Window"
+        onClick={toggleSettings}
+      />
       <div id="editUser">
         <form method="POST" onSubmit={onSubmit}>
           <input

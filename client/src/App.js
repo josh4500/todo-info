@@ -322,7 +322,7 @@ const App = () => {
       }),
     ]);
   };
-
+  const bg_blur_zIndex = sett ? 98 : -100;
   const updateProfile = (data) => {
     return setUser((prevState) => ({ ...prevState, data }));
   };
@@ -344,12 +344,26 @@ const App = () => {
           noteFunctions={{ deleteNote, checkTodo }}
         />
       </div>
+      <div
+        id="blur-bg"
+        style={{
+          position: "absolute",
+          height: "100%",
+          width: "100%",
+          background: "#19202e",
+          zIndex: bg_blur_zIndex,
+          filter: "blur(200px)",
+        }}
+      ></div>
       <Settings
         user={user}
         notes={notes}
         toggle={sett}
         logout={logout}
         control={{ updateProfile }}
+        toggleSettings={() => {
+          sett === false ? togSett(true) : togSett(false);
+        }}
       />
       <NoteEditor note={notes} toggle={noteEdit} />
     </>
