@@ -323,6 +323,10 @@ const App = () => {
     ]);
   };
 
+  const updateProfile = (data) => {
+    return setUser((prevState) => ({ ...prevState, data }));
+  };
+
   return user.active ? (
     <>
       <div id="app">
@@ -340,7 +344,13 @@ const App = () => {
           noteFunctions={{ deleteNote, checkTodo }}
         />
       </div>
-      <Settings user={user} notes={notes} toggle={sett} logout={logout} />
+      <Settings
+        user={user}
+        notes={notes}
+        toggle={sett}
+        logout={logout}
+        control={{ updateProfile }}
+      />
       <NoteEditor note={notes} toggle={noteEdit} />
     </>
   ) : (
