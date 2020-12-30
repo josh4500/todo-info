@@ -24,11 +24,12 @@ const Settings = ({ user, toggle, logout, control, toggleSettings }) => {
       <img
         src={closeIcon}
         style={{
-          height: "25px",
-          width: "25px",
+          height: "30px",
+          width: "30px",
           position: "absolute",
           right: "30px",
           top: "15px",
+          cursor: "pointer",
         }}
         alt="Close Window"
         title="Close Window"
