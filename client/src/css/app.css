@@ -48,7 +48,7 @@ body {
   height: 70%;
   width: 40%;
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: none;
   scrollbar-width: none;
   -ms-overflow-style: none;
   transform: scale(0.5);
@@ -56,7 +56,60 @@ body {
 }
 #note-editor-form {
   padding: 20px;
+  box-sizing: border-box;
 }
+#note-editor-form > input,
+#note-editor-form > textarea {
+  display: block;
+  opacity: 0.8;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+#note-editor-form > textarea {
+  padding: 10px;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  height: 50%;
+  font-size: 18px;
+}
+#todo-manu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+#addTodo {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  padding: 5px 0;
+}
+#addTodo > div,
+#addTodo > input {
+  margin-right: 15px;
+}
+#addTodo > input {
+  flex: 2 50%;
+  border-radius: 5px;
+  padding: 5px;
+}
+#addedList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+#edit-note-btn {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
+#note-editor-form > textarea::-webkit-scrollbar,
 #note-editor::-webkit-scrollbar {
   display: none;
 }
@@ -81,6 +134,7 @@ body {
   border: 1px solid #beb6b6;
   outline-style: #beb6b6;
   box-shadow: 3px 3px 5px 0 #11151d;
+  font-family: Nunito-Regular;
   /* box-sizing: border-box; */
 }
 .action-btn {

@@ -335,7 +335,6 @@ const App = () => {
         isEdit: true,
         noteContent,
       }));
-      console.log("hello");
     } else {
       noteEdit.display === false
         ? setNoteEdit((prevState) => ({
@@ -395,7 +394,7 @@ const App = () => {
       />
       <NoteEditor
         note={notes}
-        toggle={noteEdit}
+        editable={noteEdit}
         toggleNoteEdit={toggleNoteEdit}
       />
     </>
