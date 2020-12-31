@@ -110,6 +110,8 @@ body {
   overflow: hidden;
   overflow-x: scroll;
   overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-margin-bottom: 3px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }

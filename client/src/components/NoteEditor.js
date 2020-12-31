@@ -14,7 +14,7 @@ const NoteEditor = ({ editable, toggleNoteEdit, noteControls }) => {
     isTodo: false,
     todoList: [],
   });
-  const [tileColor, setTileColor] = useState([]);
+  // const [tileColor, setTileColor] = useState([]);
   useEffect(() => {
     editable.isEdit
       ? setNote(editable.noteContent)
@@ -33,12 +33,12 @@ const NoteEditor = ({ editable, toggleNoteEdit, noteControls }) => {
   const transform = editable.display ? "scale(1)" : "scale(0.5)";
   const zIndex = editable.display ? 99 : -101;
 
-  const addTileColor = () => {
-    setTileColor((prevState) => [
-      ...prevState,
-      ["purple", "red", "rebeccapurple"][Math.floor(Math.random() * 3)],
-    ]);
-  };
+  // const addTileColor = () => {
+  //   setTileColor((prevState) => [
+  //     ...prevState,
+  //     ["purple", "red", "rebeccapurple"][Math.floor(Math.random() * 3)],
+  //   ]);
+  // };
 
   const onChange = (e) => {
     setNote((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
@@ -47,7 +47,6 @@ const NoteEditor = ({ editable, toggleNoteEdit, noteControls }) => {
     e.preventDefault();
     if (editable.isEdit) {
       noteControls.modifyNote(note._id, note);
-      console.log("hey");
     }
     toggleNoteEdit();
   };
@@ -116,7 +115,6 @@ const NoteEditor = ({ editable, toggleNoteEdit, noteControls }) => {
                         ...prevState,
                         todoList: [...prevState.todoList, todo],
                       }));
-                      addTileColor();
                       setTodo({ todo: "", checked: false });
                     }
                   }}
@@ -135,9 +133,7 @@ const NoteEditor = ({ editable, toggleNoteEdit, noteControls }) => {
                     marginRight: "5px",
                     marginBottom: "5px",
                     fontSize: "12px",
-                    background: ["rebeccapurple", "purple", "red", "lightblue"][
-                      Math.floor(Math.random() * 4)
-                    ],
+                    background: "rebeccapurple",
                     padding: "0 5px",
                     borderRadius: "10px",
                   }}

@@ -18,7 +18,7 @@ const Note = ({ noteNode, noteFunctions, toggleNoteEdit }) => {
           src={edit}
           width="16px"
           height="16px"
-          alt=""
+          alt="Edit"
           title="Edit"
           onClick={() => toggleNoteEdit(true, noteNode)}
         />
@@ -27,14 +27,16 @@ const Note = ({ noteNode, noteFunctions, toggleNoteEdit }) => {
           src={share}
           width="16px"
           height="16px"
-          alt=""
+          alt="Share"
+          title="Share"
         />
         <img
           className="delete note-btn"
           src={ndelete}
           width="16px"
           height="16px"
-          alt=""
+          alt="Delete note"
+          title="Delete note"
           onClick={() => noteFunctions.deleteNote(noteNode._id)}
         />
       </div>

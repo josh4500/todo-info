@@ -290,7 +290,6 @@ const App = () => {
   });
 
   useEffect(() => {
-    // console.log(user.active);
     if (user.active) {
     }
   }, [user, notes]);
@@ -317,7 +316,6 @@ const App = () => {
       ...notes.map((note) => {
         if (note._id === noteid) {
           note.todoList[index].checked = !note.todoList[index].checked;
-          console.log(note);
         }
         return note;
       }),
