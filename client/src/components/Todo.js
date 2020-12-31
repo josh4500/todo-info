@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import done from "../icons/done.png";
 import not_done from "../icons/not_done.png";
 
 const Todo = ({ noteid, index, todo, isDone, toggleCheck }) => {
   const [icon, setIcon] = useState(isDone);
+  useEffect(() => {
+    setIcon(isDone);
+  }, [isDone]);
   const onClick = () => {
     toggleCheck(noteid, index);
     setIcon(!isDone);

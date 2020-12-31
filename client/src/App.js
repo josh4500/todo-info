@@ -13,17 +13,27 @@ const App = () => {
       userid: "davinci4500",
       description:
         "Hey our unknown todo i just want this to be a very long sentence more longer than what I wrote last time",
-      title: "Mubarack",
+      title: "Natsu Dragneel",
       isTodo: true,
       todoList: [
         {
           _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
+          todo: "Going back to church 1",
           checked: false,
         },
         {
           _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
+          todo: "Going back to church 2",
+          checked: false,
+        },
+        {
+          _id: "5fc64666b12ed22370774a5d",
+          todo: "Going back to church 3",
+          checked: false,
+        },
+        {
+          _id: "5fc64666b12ed22370774a5d",
+          todo: "Going back to church 4",
           checked: false,
         },
       ],
@@ -396,6 +406,7 @@ const App = () => {
         note={notes}
         editable={noteEdit}
         toggleNoteEdit={toggleNoteEdit}
+        noteControls={{ modifyNote }}
       />
     </>
   ) : (
