@@ -68,6 +68,7 @@ form input[type="password"]:active {
   background: transparent;
   color: rgb(0, 132, 255);
   text-decoration: underline;
+  cursor: pointer;
 }
 #submit-btn {
   position: relative;

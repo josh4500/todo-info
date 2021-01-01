@@ -24,6 +24,11 @@ const App = () => {
       setTheme({});
     }
   }, [user]);
+  const signup = (signupDetails) => {
+    Helper.postData("/user/addUser", signupDetails).then((data) => {
+      if (data.success) setUser({ active: true, data: data.addNewUser });
+    });
+  };
   const login = (loginDetails) => {
     Helper.postData("/user/getUser", loginDetails).then((data) => {
       if (data.success) setUser({ active: true, data: data.data[0] });
@@ -164,7 +169,7 @@ const App = () => {
     </>
   ) : (
     <div id="authenticate">
-      <Authentication control={{ login }} />
+      <Authentication control={{ login, signup }} />
     </div>
   );
 };
