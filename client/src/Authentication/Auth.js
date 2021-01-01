@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Input } from "../components";
+import * as helper from "../helper";
 import "../css/auth.css";
 
 const Auth = ({ control }) => {
@@ -32,11 +33,7 @@ const Auth = ({ control }) => {
     e.preventDefault();
     //TODO
     if (page === "Login") {
-      control.login({
-        userid: 1234,
-        username: "ajosh4500",
-        email: "example@gmail.com",
-      });
+      control.login(loginData);
     } else {
       control.login({
         userid: 1234,

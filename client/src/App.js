@@ -7,280 +7,7 @@ import "./css/app.css";
 
 const App = () => {
   const [user, setUser] = useState({ active: false, data: {} });
-  const [notes, setNotes] = useState([
-    {
-      _id: "5fc52c63923593276414d4611",
-      userid: "davinci4500",
-      description:
-        "Hey our unknown todo i just want this to be a very long sentence more longer than what I wrote last time",
-      title: "Natsu Dragneel",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church 1",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church 2",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church 3",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church 4",
-          checked: false,
-        },
-      ],
-      date: "2020-11-30T17:31:15.533Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc52c63923593276414d4612",
-      userid: "davinci4500",
-      description:
-        "Hey our unknown todo i just want this to be a very long sentence more longer than what I wrote last time",
-      title: "Mubarack",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-      ],
-      date: "2020-11-30T17:31:15.533Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc52c63923593276414d4613",
-      userid: "davinci4500",
-      description:
-        "Hey our unknown todo i just want this to be a very long sentence more longer than what I wrote last time",
-      title: "Mubarack",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-      ],
-      date: "2020-11-30T17:31:15.533Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc52c63923593276414d4614",
-      userid: "davinci4500",
-      description:
-        "Hey our unknown todo i just want this to be a very long sentence more longer than what I wrote last time",
-      title: "Mubarack",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-      ],
-      date: "2020-11-30T17:31:15.533Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc52c63923593276414d4615",
-      userid: "davinci4500",
-      description:
-        "Hey our unknown todo i just want this to be a very long sentence more longer than what I wrote last time",
-      title: "Mubarack",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-      ],
-      date: "2020-11-30T17:31:15.533Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc52c63923593276414d4616",
-      userid: "davinci4500",
-      description:
-        "Hey our unknown todo i just want this to be a very long sentence more longer than what I wrote last time",
-      title: "Mubarack",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-      ],
-      date: "2020-11-30T17:31:15.533Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc52c63923593276414d4617",
-      userid: "davinci4500",
-      description:
-        "Hey our unknown todo i just want this to be a very long sentence more longer than what I wrote last time",
-      title: "Mubarack",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-      ],
-      date: "2020-11-30T17:31:15.533Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc6466eb12ed22370774a5e8",
-      userid: "davinci4500",
-      description: "Hey our first todo",
-      title: "A test data",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc6466eb12ed22370774a5f",
-          todo: "Going back to church",
-          checked: false,
-        },
-      ],
-      date: "2020-12-01T13:34:38.616Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc64671b12ed22370774a609",
-      userid: "davinci4500",
-      description: "Hey our first todo",
-      title: "A test data",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64671b12ed22370774a61",
-          todo: "Going back to church",
-          checked: true,
-        },
-      ],
-      date: "2020-12-01T13:34:41.595Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc64dd1522d243b10d358ee10",
-      userid: "davinci4500",
-      description: "Hey our first todo",
-      title: "A test data",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64dd1522d243b10d358ef",
-          todo: "Going back to church",
-          checked: true,
-        },
-      ],
-      date: "2020-12-01T14:06:09.993Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc64dd1522d243b10d358ee11",
-      userid: "davinci4500",
-      description: "Hey our first todo",
-      title: "A test data",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64dd1522d243b10d358ef",
-          todo: "Going back to church",
-          checked: true,
-        },
-      ],
-      date: "2020-12-01T14:06:09.993Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc52c63923593276414d46112",
-      userid: "davinci4500",
-      description:
-        "Hey our unknown todo i just want this to be a very long sentence more longer than what I wrote last time",
-      title: "Mubarack",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-      ],
-      date: "2020-11-30T17:31:15.533Z",
-      __v: 0,
-    },
-    {
-      _id: "5fc52c63923593276414d46113",
-      userid: "davinci4500",
-      description:
-        "Hey our unknown todo i just want this to be a very long sentence more longer than what I wrote last time",
-      title: "Mubarack",
-      isTodo: true,
-      todoList: [
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-        {
-          _id: "5fc64666b12ed22370774a5d",
-          todo: "Going back to church",
-          checked: false,
-        },
-      ],
-      date: "2020-11-30T17:31:15.533Z",
-      __v: 0,
-    },
-  ]); //A structure of a User NoteList
+  const [notes, setNotes] = useState([]); //A structure of a User NoteList
   const [theme, setTheme] = useState({});
   const [sett, togSett] = useState(false);
   const [noteEdit, setNoteEdit] = useState({
@@ -291,49 +18,77 @@ const App = () => {
 
   useEffect(() => {
     if (user.active) {
+      Helper.getData(`/todo/${user.data.userid}/`).then((data) =>
+        setNotes(data)
+      );
+      setTheme({});
     }
-  }, [user, notes]);
+  }, [user]);
   const login = (loginDetails) => {
-    //TODO
-    setUser({ active: true, data: { ...loginDetails } });
+    Helper.postData("/user/getUser", loginDetails).then((data) => {
+      if (data.success) setUser({ active: true, data: data.data[0] });
+    });
   };
   const logout = (userid) => {
-    //TODO
-    if (userid === user.data.userid) setUser({ active: false, data: {} });
+    if (userid === user.data.userid) {
+      setUser({ active: false, data: {} });
+      setNotes([]);
+      togSett(false);
+    }
   };
   const addNote = (note) => {
-    //TODO
-    setNotes((prevNotes) => [...prevNotes, note]);
+    Helper.postData("/todo/addTodo", {
+      userid: user.data.userid,
+      ...note,
+    }).then((data) => setNotes((prevNotes) => [...prevNotes, data]));
   };
   const deleteNote = (noteid) => {
-    //TODO
-    setNotes([...notes.filter((note) => note._id !== noteid)]);
+    Helper.deleteData(
+      `/todo/delete/${user.data.userid}/${noteid}`
+    ).then((data) =>
+      setNotes([...notes.filter((note) => note._id !== noteid)])
+    );
   };
 
   const checkTodo = (noteid, index) => {
-    //TODO
-    setNotes([
-      ...notes.map((note) => {
-        if (note._id === noteid) {
-          note.todoList[index].checked = !note.todoList[index].checked;
-        }
+    const newNote = notes
+      .filter((note) => note._id === noteid)
+      .map((note) => {
+        note.todoList[index].checked = !note.todoList[index].checked;
         return note;
-      }),
-    ]);
+      });
+    Helper.postData(
+      `/todo/update/${user.data.userid}/${noteid}`,
+      newNote[0]
+    ).then(() =>
+      setNotes([
+        ...notes.map((note) => {
+          if (note._id === noteid) {
+            note.todoList[index].checked = !note.todoList[index].checked;
+          }
+          return note;
+        }),
+      ])
+    );
   };
   const modifyNote = (noteid, newTodo) => {
-    setNotes([
-      ...notes.map((note) => {
-        if (note._id === noteid) {
-          return { ...note, ...newTodo };
-        }
-        return note;
-      }),
-    ]);
+    Helper.postData(`/todo/update/${user.data.userid}/${noteid}`, newTodo).then(
+      () =>
+        setNotes([
+          ...notes.map((note) => {
+            if (note._id === noteid) {
+              return { ...note, ...newTodo };
+            }
+            return note;
+          }),
+        ])
+    );
   };
   const bg_blur_zIndex = sett || noteEdit.display ? 98 : -100;
   const updateProfile = (data) => {
-    return setUser((prevState) => ({ ...prevState, data }));
+    Helper.patchData(`/user/updateUser/${user.data.userid}`, data).then(() =>
+      setUser((prevState) => ({ ...prevState, data }))
+    );
   };
   const toggleNoteEdit = (isEdit, noteContent) => {
     if (isEdit === true) {
@@ -404,7 +159,7 @@ const App = () => {
         note={notes}
         editable={noteEdit}
         toggleNoteEdit={toggleNoteEdit}
-        noteControls={{ modifyNote }}
+        noteControls={{ modifyNote, addNote }}
       />
     </>
   ) : (

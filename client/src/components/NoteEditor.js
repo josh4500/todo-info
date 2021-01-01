@@ -47,6 +47,8 @@ const NoteEditor = ({ editable, toggleNoteEdit, noteControls }) => {
     e.preventDefault();
     if (editable.isEdit) {
       noteControls.modifyNote(note._id, note);
+    } else {
+      if (note.description) noteControls.addNote(note);
     }
     toggleNoteEdit();
   };

@@ -9,6 +9,7 @@ const Settings = ({ user, toggle, logout, control, toggleSettings }) => {
   const [newData, setNewData] = useState({ ...user.data, password: "" });
   const onSubmit = (e) => {
     e.preventDefault();
+    if (!newData.password) newData.password = user.data.password;
     control.updateProfile({ ...user.data, ...newData });
   };
   const onChange = (e) => {
