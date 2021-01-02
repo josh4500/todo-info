@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "../components";
 import "../css/auth.css";
 
@@ -7,7 +7,7 @@ const Auth = ({ control }) => {
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
-    keepSignedIn: "",
+    keepSignedIn: false,
   });
   const [newUser, setNewUser] = useState({
     username: "",
@@ -15,8 +15,19 @@ const Auth = ({ control }) => {
     password: "",
     cPassword: "",
   });
+  useEffect(() => {
+    if (loginData.keepSignedIn === true) {
+      document.getElementById("keepLoggin").checked = true;
+    }
+  }, [loginData]);
   const onChange = (e) => {
     if (page === "Login") {
+      if (e.target.name === "keepSignedIn") {
+        return setLoginData((prevState) => ({
+          ...prevState,
+          [e.target.name]: !prevState.keepSignedIn,
+        }));
+      }
       setLoginData((prevState) => ({
         ...prevState,
         [e.target.name]: e.target.value,
@@ -68,10 +79,12 @@ const Auth = ({ control }) => {
               onChange={onChange}
             />
             <div>
-              <Input
-                name="keepLoggin"
-                type="radio"
-                value={loginData.keepSignedIn}
+              <input
+                id="keepLoggin"
+                name="keepSignedIn"
+                type="checkbox"
+                value={true}
+                onChange={onChange}
               />
               <label className="keepLoggin" htmlFor="keepLoggin">
                 Keep me logged in?
@@ -126,6 +139,7 @@ const Auth = ({ control }) => {
           onClick={() => {
             if (page === "Signup") {
               setLoginData({
+                ...loginData,
                 email: newUser.email,
                 password: newUser.password,
               });

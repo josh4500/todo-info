@@ -41,7 +41,9 @@ const Note = ({ noteNode, noteFunctions, toggleNoteEdit }) => {
         />
       </div>
       <div className="noteContent">
-        <div className="desc">{noteNode.description}</div>
+        <div className="desc">
+          <p>{noteNode.description}</p>
+        </div>
         {noteNode.isTodo ? (
           <TodoList
             noteid={noteNode._id}

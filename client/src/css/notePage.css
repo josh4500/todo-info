@@ -19,17 +19,15 @@
   font-family: Nunito-Regular;
 }
 #body {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-auto-columns: auto;
-  grid-auto-rows: 200px;
-  gap: 0.8em;
-  height: inherit;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding: 20px;
+  padding-top: 10px;
+  padding-right: 15px;
 }
 .note {
-  display: flex;
-  flex-direction: column;
+  flex-grow: 1;
   background-color: #2f415d;
   border-radius: 10px;
   padding: 8px;
@@ -38,6 +36,14 @@
   font-size: 12px;
   box-shadow: 2px 2px 1px 0 #212c3d, -2px -2px 1px 0 #212c3d;
   overflow: hidden;
+  scroll-margin-bottom: 5px;
+  margin: 5px;
+  height: 200px;
+  width: 20%;
+  min-width: 25%;
+  max-height: 200px;
+  max-width: 400px;
+  overflow-anchor: 10px;
 }
 .note-controls {
   display: flex;
@@ -61,6 +67,12 @@
 .desc {
   flex: 2 20%;
   margin-bottom: 7px;
+}
+.desc > p {
+  margin-top: 0;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .todo {
   display: flex;
