@@ -10,8 +10,15 @@ export async function postData(url = "", data = {}) {
   });
   return response.json();
 }
-export async function getData(url) {
-  const response = await fetch(`${host}${url}?key=${key}`, { method: "GET" });
+export async function getData(url, header) {
+  const response = !header
+    ? await fetch(`${host}${url}?key=${key}`, { method: "GET" })
+    : await fetch(`${host}${url}?key=${key}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${header}`,
+        },
+      });
   return response.json();
 }
 export async function deleteData(url = "") {

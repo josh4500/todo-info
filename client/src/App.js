@@ -7,7 +7,7 @@ import "./css/app.css";
 
 const App = () => {
   const [user, setUser] = useState({ active: false, data: {} });
-  const [notes, setNotes] = useState([]); //A structure of a User NoteList
+  const [notes, setNotes] = useState([]);
   const [theme, setTheme] = useState({});
   const [sett, togSett] = useState(false);
   const [noteEdit, setNoteEdit] = useState({
@@ -15,6 +15,17 @@ const App = () => {
     noteContent: {},
     isEdit: false,
   });
+
+  useEffect(() => {
+    Helper.getData(
+      "/user/getUser/",
+      localStorage.getItem("note_app_token") || null
+    ).then((data) => {
+      if (data.success) {
+        setUser({ active: true, data: data.data });
+      }
+    });
+  }, []);
 
   useEffect(() => {
     if (user.active) {
@@ -31,12 +42,16 @@ const App = () => {
   };
   const login = (loginDetails) => {
     Helper.postData("/user/getUser", loginDetails).then((data) => {
-      if (data.success) setUser({ active: true, data: data.data[0] });
+      if (data.success) {
+        localStorage.setItem("note_app_token", data.token);
+        setUser({ active: true, data: data.data });
+      }
     });
   };
   const logout = (userid) => {
     if (userid === user.data.userid) {
       setUser({ active: false, data: {} });
+      localStorage.removeItem("note_app_token");
       setNotes([]);
       togSett(false);
     }
@@ -122,6 +137,7 @@ const App = () => {
 
   return user.active ? (
     <>
+      {/* <div id="loading-screen"></div> */}
       <div id="app">
         <UserProfile
           user={user}

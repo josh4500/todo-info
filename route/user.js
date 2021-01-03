@@ -4,7 +4,20 @@ const User = require("../models/user");
 const hash = require("pbkdf2-password")();
 const shash = require("shorthash");
 const verifyKey = require("./verifyKey");
+const jwt = require("jsonwebtoken");
 
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (token == null)
+    return res.json({ message: "No saved log", success: false });
+
+  jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+    if (err) return res.json({ message: err, success: false });
+    req.userid = user.userid;
+    next();
+  });
+}
 //Adding a user
 router.post("/addUser", [verifyKey, getOneUser], (req, res) => {
   var password = {};
@@ -60,8 +73,18 @@ router.post("/getUser", [verifyKey, getOneUser], async (req, res) => {
           if (err) throw err;
 
           if (hash === res.user[0].password.hash) {
+            const token = req.body.keepSignedIn
+              ? jwt.sign(
+                  { userid: res.user[0].userid },
+                  process.env.TOKEN_SECRET,
+                  {
+                    expiresIn: "1h",
+                  }
+                )
+              : null;
             res.json({
-              data: res.user,
+              data: res.user[0],
+              token,
               success: true,
             });
           } else {
@@ -78,12 +101,12 @@ router.post("/getUser", [verifyKey, getOneUser], async (req, res) => {
 });
 
 //Get user by userid without authentication
-router.get("/getUser/:userid", [verifyKey, getOneUser], async (req, res) => {
+router.get("/getUser/", [verifyKey, authenticateToken], async (req, res) => {
   try {
     if (res.verified.success == false) throw res.verified;
-    const user = await User.find({ userid: req.params.userid });
+    const user = await User.find({ userid: req.userid });
 
-    res.json(user);
+    res.json({ data: user[0], success: true });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
