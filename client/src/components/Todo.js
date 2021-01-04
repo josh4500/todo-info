@@ -5,12 +5,10 @@ import not_done from "../icons/not_done.png";
 const Todo = ({ noteid, index, todo, isDone, toggleCheck }) => {
   const [icon, setIcon] = useState(isDone);
   useEffect(() => {
-    // console.log(icon);
     setIcon(isDone);
   }, [isDone]);
   const onClick = () => {
     toggleCheck(noteid, index);
-    console.log(icon);
   };
   return (
     <div className="todo" onClick={onClick}>

@@ -9,7 +9,7 @@ const App = () => {
   const [user, setUser] = useState({ active: false, data: {} });
   const [notes, setNotes] = useState([]);
   const [theme, setTheme] = useState({});
-  const [sett, togSett] = useState(false);
+  const [sett, togSett] = useState(true);
   const [noteEdit, setNoteEdit] = useState({
     display: false,
     noteContent: {},

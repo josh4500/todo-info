@@ -23,15 +23,8 @@ const Settings = ({ user, toggle, logout, control, toggleSettings }) => {
       <h1>Account settings</h1>
       <h4>Update account settings</h4>
       <img
+        className="close-window"
         src={closeIcon}
-        style={{
-          height: "30px",
-          width: "30px",
-          position: "absolute",
-          right: "30px",
-          top: "15px",
-          cursor: "pointer",
-        }}
         alt="Close Window"
         title="Close Window"
         onClick={toggleSettings}

@@ -55,15 +55,8 @@ const NoteEditor = ({ editable, toggleNoteEdit, noteControls }) => {
   return (
     <div id="note-editor" style={{ opacity, transform, zIndex }}>
       <img
+        className="close-window"
         src={closeIcon}
-        style={{
-          height: "30px",
-          width: "30px",
-          position: "absolute",
-          right: "30px",
-          top: "15px",
-          cursor: "pointer",
-        }}
         alt="Close Window"
         title="Close Window"
         onClick={toggleNoteEdit}
@@ -90,7 +83,7 @@ const NoteEditor = ({ editable, toggleNoteEdit, noteControls }) => {
         ></textarea>
         <div id="todo-manu">
           <div id="addTodo">
-            <div>ADD TODO</div>
+            <div id="todo-action">ADD TODO</div>
             <input
               id="todoInput"
               type="text"
