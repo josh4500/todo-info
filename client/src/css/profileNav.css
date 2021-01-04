@@ -18,7 +18,6 @@
 .todoDetails {
   padding: 0 5px;
   border: 1px solid transparent;
-  /* border-bottom: 1px solid rgb(233, 229, 229); */
 }
 #userTodoInfo {
   margin-bottom: 5px;
@@ -65,4 +64,11 @@
   color: inherit;
   font-family: inherit;
   text-align: center;
+}
+
+@media screen and (max-width: 650px) {
+  #profileDetails {
+    position: absolute;
+    left: -300px;
+  }
 }

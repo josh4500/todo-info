@@ -43,7 +43,6 @@
   min-width: 25%;
   max-height: 200px;
   max-width: 400px;
-  overflow-anchor: 10px;
 }
 .note-controls {
   display: flex;
@@ -90,4 +89,16 @@
   flex-direction: column;
   flex: 1 40%;
   margin-top: 5px;
+}
+@media screen and (max-width: 650px) {
+  #body {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px;
+    padding-top: 5px;
+  }
+  .note {
+    width: auto;
+    max-width: auto;
+  }
 }
