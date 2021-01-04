@@ -6,7 +6,7 @@ const NotePage = ({ notes, theme, noteFunctions, toggleNoteEdit }) => {
   return (
     <div id="notePage">
       <div id="head">
-        <div>Note</div>
+        <div></div>
       </div>
       <div id="body">
         {notes.map((note, index) => {

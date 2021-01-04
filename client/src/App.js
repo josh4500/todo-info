@@ -80,16 +80,16 @@ const App = () => {
     Helper.postData(
       `/todo/update/${user.data.userid}/${noteid}`,
       newNote[0]
-    ).then(() =>
+    ).then((data) => {
       setNotes([
         ...notes.map((note) => {
           if (note._id === noteid) {
-            note.todoList[index].checked = !note.todoList[index].checked;
+            return data.data;
           }
           return note;
         }),
-      ])
-    );
+      ]);
+    });
   };
   const modifyNote = (noteid, newTodo) => {
     Helper.postData(`/todo/update/${user.data.userid}/${noteid}`, newTodo).then(

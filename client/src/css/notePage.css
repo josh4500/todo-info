@@ -30,19 +30,20 @@
   flex-grow: 1;
   background-color: #2f415d;
   border-radius: 10px;
-  padding: 8px;
+  padding: 10px 12px;
   font-family: inherit;
-  color: #f1f1f1;
+  color: #ffffff;
   font-size: 12px;
   box-shadow: 2px 2px 1px 0 #212c3d, -2px -2px 1px 0 #212c3d;
   overflow: hidden;
-  scroll-margin-bottom: 5px;
   margin: 5px;
   height: 200px;
   width: 20%;
   min-width: 25%;
   max-height: 200px;
   max-width: 400px;
+  /* text-shadow: 1px 1px 0 #142031; */
+  text-align: left;
 }
 .note-controls {
   display: flex;
