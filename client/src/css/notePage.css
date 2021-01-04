@@ -92,6 +92,9 @@
   flex: 1 40%;
   margin-top: 5px;
 }
+#profileToggleBar {
+  display: none;
+}
 @media screen and (max-width: 650px) {
   #body {
     flex-direction: column;
@@ -101,6 +104,33 @@
   }
   .note {
     width: auto;
-    max-width: auto;
+    max-width: unset;
+  }
+  #head {
+    height: 10%;
+    /* border: 1px solid red; */
+  }
+  #profileToggleBar {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    height: 2px;
+    width: 15px;
+    opacity: 0.7;
+    background-color: white;
+    z-index: 110;
+  }
+  #profileToggleBar::before,
+  #profileToggleBar::after {
+    position: relative;
+    content: "";
+    top: 5px;
+    left: 0;
+    height: 2px;
+    width: 15px;
+  }
+  #profileToggleBar::after {
+    top: 5px;
   }
 }
