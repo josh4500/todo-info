@@ -68,10 +68,17 @@
 
 @media screen and (max-width: 650px) {
   #profileDetails {
-    position: absolute;
     width: 100vw;
+  }
+}
+
+@media screen and (max-width: 920px) {
+  #profileDetails {
+    position: absolute;
+    width: 40vw;
     height: 100vh;
-    transform: translateX(-100vw);
+    transform: translateX(-200vw);
     transition: transform 0.5s ease;
+    z-index: 109;
   }
 }

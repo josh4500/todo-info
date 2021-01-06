@@ -44,6 +44,7 @@
   max-width: 400px;
   /* text-shadow: 1px 1px 0 #142031; */
   text-align: left;
+  flex: 1 20%;
 }
 .note-controls {
   display: flex;
@@ -95,7 +96,7 @@
 #profileToggleBar {
   display: none;
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 500px) {
   #body {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -110,27 +111,22 @@
     height: 10%;
     /* border: 1px solid red; */
   }
-  #profileToggleBar {
-    display: block;
-    position: fixed;
-    top: 10px;
-    left: 0;
-    height: 2px;
-    width: 15px;
-    opacity: 0.7;
-    background-color: white;
-    z-index: 110;
+}
+@media screen and (max-width: 500) {
+  .note {
+    flex: 1 50%;
+    width: auto;
+    max-height: 400px;
+    max-width: unset;
   }
-  #profileToggleBar::before,
-  #profileToggleBar::after {
-    position: relative;
-    content: "";
-    top: 5px;
-    left: 0;
-    height: 2px;
-    width: 15px;
+}
+@media screen and (max-width: 920px) {
+  #notePage {
+    flex-wrap: unset;
   }
-  #profileToggleBar::after {
-    top: 5px;
+  .note {
+    flex: 1 40%;
+    width: auto;
+    max-width: unset;
   }
 }

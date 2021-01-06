@@ -43,9 +43,11 @@ const UserProfile = ({ user, notes, toggleSettings, toggleNoteEdit }) => {
             more tasks to accomplish
           </p>
         </div>
-        <button id="addNoteBtn" onClick={toggleNoteEdit}>
-          ADD NOTE
-        </button>
+        <label htmlFor="toggleProfile">
+          <button id="addNoteBtn" onClick={toggleNoteEdit}>
+            ADD NOTE
+          </button>
+        </label>
       </div>
       <div id="stts" onClick={() => toggleSettings()}>
         <img src={settsIcon} alt="" />

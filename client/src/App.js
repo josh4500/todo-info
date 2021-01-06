@@ -9,7 +9,7 @@ const App = () => {
   const [user, setUser] = useState({ active: false, data: {} });
   const [notes, setNotes] = useState([]);
   const [theme, setTheme] = useState({});
-  const [sett, togSett] = useState(true);
+  const [sett, togSett] = useState(false);
   const [noteEdit, setNoteEdit] = useState({
     display: false,
     noteContent: {},
@@ -139,6 +139,10 @@ const App = () => {
     <>
       {/* <div id="loading-screen"></div> */}
       <div id="app">
+        <input id="toggleProfile" style={{ display: "none" }} type="checkbox" />
+        <label htmlFor="toggleProfile">
+          <div id="profileToggleBar"></div>
+        </label>
         <UserProfile
           user={user}
           notes={notes}

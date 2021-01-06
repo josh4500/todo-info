@@ -5,9 +5,7 @@ import "../css/notePage.css";
 const NotePage = ({ notes, theme, noteFunctions, toggleNoteEdit }) => {
   return (
     <div id="notePage">
-      <div id="head">
-        <div id="profileToggleBar"></div>
-      </div>
+      <div id="head"></div>
       <div id="body">
         {notes.map((note, index) => {
           return (

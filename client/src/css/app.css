@@ -247,3 +247,32 @@ body {
     font-family: Nunito-Regular;
   }
 }
+@media screen and (max-width: 920px) {
+  #profileToggleBar {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 0;
+    height: 2px;
+    width: 15px;
+    opacity: 0.7;
+    background-color: white;
+    z-index: 110;
+  }
+  #profileToggleBar::before,
+  #profileToggleBar::after {
+    position: relative;
+    content: "";
+    top: 5px;
+    left: 0;
+    height: 2px;
+    width: 15px;
+  }
+  #profileToggleBar::after {
+    top: 5px;
+  }
+  #toggleProfile:checked + label + div {
+    transform: translateX(0vw);
+    box-shadow: 5px 0 10px #11151d;
+  }
+}
