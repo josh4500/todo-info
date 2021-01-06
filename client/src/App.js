@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Authentication from "./Authentication";
 import { UserProfile, NotePage, Settings, NoteEditor } from "./components";
-import "./css/index.css";
 import * as Helper from "./helper";
+import draw from "./icons/draw.png";
+import "./css/index.css";
 import "./css/app.css";
 
 const App = () => {
@@ -133,6 +134,8 @@ const App = () => {
             noteContent: {},
           }));
     }
+    //Make profile details close
+    document.getElementById("toggleProfile").checked = false;
   };
 
   return user.active ? (
@@ -141,7 +144,12 @@ const App = () => {
       <div id="app">
         <input id="toggleProfile" style={{ display: "none" }} type="checkbox" />
         <label htmlFor="toggleProfile">
-          <div id="profileToggleBar"></div>
+          <img
+            id="profileToggleBar"
+            src={draw}
+            alt="Open Drawer"
+            title="Draw"
+          />
         </label>
         <UserProfile
           user={user}
@@ -149,6 +157,8 @@ const App = () => {
           theme={theme}
           toggleSettings={() => {
             sett === false ? togSett(true) : togSett(false);
+            //Make profile details close
+            document.getElementById("toggleProfile").checked = false;
           }}
           toggleNoteEdit={toggleNoteEdit}
         />

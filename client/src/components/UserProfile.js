@@ -7,11 +7,7 @@ const UserProfile = ({ user, notes, toggleSettings, toggleNoteEdit }) => {
   return (
     <div id="profileDetails" style={{ fontFamily: "Nunito-Regular" }}>
       <div id="userDetails">
-        <img
-          style={{ display: "block", margin: "auto", width: "63%" }}
-          src={userImg}
-          alt=""
-        />
+        <img id="profilePic" src={userImg} alt="Default profilePic" />
         <div id="username" style={{ textAlign: "center" }}>
           {user.data.username.toUpperCase()}
         </div>

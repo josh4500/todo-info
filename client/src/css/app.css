@@ -252,27 +252,17 @@ body {
     display: block;
     position: fixed;
     top: 10px;
-    left: 0;
-    height: 2px;
-    width: 15px;
-    opacity: 0.7;
-    background-color: white;
+    left: 2px;
+    height: 25px;
+    width: 25px;
     z-index: 110;
-  }
-  #profileToggleBar::before,
-  #profileToggleBar::after {
-    position: relative;
-    content: "";
-    top: 5px;
-    left: 0;
-    height: 2px;
-    width: 15px;
-  }
-  #profileToggleBar::after {
-    top: 5px;
+    transition: transform 0.3s ease-in;
   }
   #toggleProfile:checked + label + div {
     transform: translateX(0vw);
     box-shadow: 5px 0 10px #11151d;
+  }
+  #toggleProfile:checked + label > #profileToggleBar {
+    transform: rotate(180deg);
   }
 }
