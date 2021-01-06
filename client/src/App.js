@@ -136,6 +136,22 @@ const App = () => {
     }
     //Make profile details close
     document.getElementById("toggleProfile").checked = false;
+
+    //Set Note editor to default state if NoteEditor window is set true
+    togSett(false);
+  };
+
+  const toggleSettings = () => {
+    sett === false ? togSett(true) : togSett(false);
+    //Make profile details close
+    document.getElementById("toggleProfile").checked = false;
+
+    //Set Note editor to default state if Settings window is set true
+    setNoteEdit({
+      display: false,
+      noteContent: {},
+      isEdit: false,
+    });
   };
 
   return user.active ? (
@@ -155,11 +171,7 @@ const App = () => {
           user={user}
           notes={notes}
           theme={theme}
-          toggleSettings={() => {
-            sett === false ? togSett(true) : togSett(false);
-            //Make profile details close
-            document.getElementById("toggleProfile").checked = false;
-          }}
+          toggleSettings={toggleSettings}
           toggleNoteEdit={toggleNoteEdit}
         />
         <NotePage

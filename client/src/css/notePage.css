@@ -13,10 +13,13 @@
   display: none;
 }
 #head {
+  display: block;
+  padding: 5px 0;
   height: 20px;
   width: 100%;
   color: white;
   font-family: Nunito-Regular;
+  background: inherit;
 }
 #body {
   display: flex;
