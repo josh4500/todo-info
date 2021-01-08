@@ -24,7 +24,7 @@ const userRouter = require("./route/user");
 app.use("/todo", todoRouter);
 app.use("/user", userRouter);
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+  res.sendFile(path.join(__dirname, "/build", "index.html"));
 });
 
 app.listen(process.env.PORT, () =>
