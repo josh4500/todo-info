@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
-// const cors = require("cors");
+const cors = require("cors");
 
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
@@ -16,7 +16,7 @@ db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to DB"));
 
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 app.use(express.static("client/build"));
 
 const todoRouter = require("./route/todo");
