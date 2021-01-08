@@ -126,6 +126,7 @@
 @media screen and (max-width: 920px) {
   #notePage {
     flex-wrap: unset;
+    height: 100vh;
   }
   .note {
     flex: 1 40%;
