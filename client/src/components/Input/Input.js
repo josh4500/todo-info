@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { validateEmail, validatePassword } from "../../helper";
 import valid from "./valid.png";
 import invalid from "./invalid.png";
 
@@ -12,17 +13,14 @@ const Input = ({
   value,
   onChange,
   onKeyDown,
+  validator,
 }) => {
   const [validate, setValidate] = useState(null);
   const InputRef = useRef();
   useEffect(() => {
     if (InputRef.current.value) {
       if (InputRef.current.type === "email") {
-        if (
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-            InputRef.current.value.toLowerCase()
-          )
-        ) {
+        if (validateEmail(InputRef.current.value.toLowerCase())) {
           setValidate(true);
         } else {
           setValidate(false);
@@ -36,7 +34,7 @@ const Input = ({
         }
       }
       if (InputRef.current.name === "password") {
-        if (/^[0-9a-zA-Z]+$/.test(InputRef.current.value)) setValidate(true);
+        if (validatePassword(InputRef.current.value)) setValidate(true);
         else {
           setValidate(false);
         }
@@ -51,7 +49,7 @@ const Input = ({
     } else {
       setValidate(null);
     }
-  }, [InputRef, value]);
+  }, [InputRef, value, validator]);
   return (
     <div className={className}>
       <input
@@ -67,7 +65,7 @@ const Input = ({
         onKeyDown={onKeyDown}
       />
       {type !== "checkbox" ? (
-        validate === null ? (
+        validate === null || validator === null ? (
           ""
         ) : (
           <img className="validated" src={validate ? valid : invalid} alt="" />

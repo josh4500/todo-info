@@ -37,3 +37,12 @@ export async function patchData(url = "", data = {}) {
   });
   return response.json();
 }
+export const validateEmail = (email) => {
+  return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    email.toLowerCase()
+  );
+};
+
+export const validatePassword = (password) => {
+  return /^[0-9a-zA-Z]+$/.test(password) && password >= 8;
+};

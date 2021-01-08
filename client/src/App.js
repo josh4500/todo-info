@@ -44,8 +44,9 @@ const App = () => {
   const login = (loginDetails) => {
     Helper.postData("/user/getUser", loginDetails).then((data) => {
       if (data.success) {
-        localStorage.setItem("note_app_token", data.token);
         setUser({ active: true, data: data.data });
+        localStorage.setItem("note_app_token", data.token);
+        return true;
       }
     });
   };
@@ -211,7 +212,7 @@ const App = () => {
     </>
   ) : (
     <div id="authenticate">
-      <Authentication control={{ login, signup }} />
+      <Authentication user={user} control={{ login, signup }} />
     </div>
   );
 };
