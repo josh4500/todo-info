@@ -44,5 +44,5 @@ export const validateEmail = (email) => {
 };
 
 export const validatePassword = (password) => {
-  return /^[0-9a-zA-Z]+$/.test(password) && password >= 8;
+  return /^[0-9a-zA-Z]+$/.test(password);
 };
