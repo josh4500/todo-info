@@ -1,5 +1,5 @@
 #notePage {
-  background-color: #1f293b;
+  background-color: #254277;
   height: 100%;
   width: 100%;
   display: flex;
@@ -31,13 +31,13 @@
 }
 .note {
   flex-grow: 1;
-  background-color: #2f415d;
   border-radius: 10px;
   padding: 10px 12px;
   font-family: inherit;
   color: #ffffff;
   font-size: 12px;
-  box-shadow: 2px 2px 1px 0 #212c3d, -2px -2px 1px 0 #212c3d;
+  box-shadow: -1px -1px 1px 0 #ffffff20, 2px 2px 2px 0 #00000020,
+    inset -3px -3px 3px 0 #ffffff20, inset 5px 5px 5px 0 #00000020;
   overflow: hidden;
   margin: 5px;
   height: 200px;

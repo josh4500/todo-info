@@ -1,5 +1,5 @@
 const key = "AIoKliV2";
-const host = "https://todo-info-davinci4500.herokuapp.com";
+const host = "http://localhost:4000";
 export async function postData(url = "", data = {}) {
   const response = await fetch(`${host}${url}?key=${key}`, {
     method: "POST",
