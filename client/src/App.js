@@ -106,7 +106,7 @@ const App = () => {
         ])
     );
   };
-  const bg_blur_zIndex = sett || noteEdit.display ? 98 : -100;
+  const bg_blur = sett || noteEdit.display ? true : false;
   const updateProfile = (data) => {
     Helper.patchData(`/user/updateUser/${user.data.userid}`, data).then(() =>
       setUser((prevState) => ({ ...prevState, data }))
@@ -188,9 +188,10 @@ const App = () => {
           position: "absolute",
           height: "100%",
           width: "100%",
-          background: "#19202e",
-          zIndex: bg_blur_zIndex,
-          filter: "blur(200px)",
+          opacity: bg_blur ? 1 : 0,
+          visibility: bg_blur ? "visible" : "hidden",
+          backdropFilter: "blur(-2px)",
+          transition: "all 0.5s ease-in-out",
         }}
       ></div>
       <Settings
