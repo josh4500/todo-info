@@ -79,6 +79,9 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
+.desc > p::selection {
+  background-color: rgb(3, 3, 92);
+}
 .todo {
   display: flex;
   flex-direction: row;
@@ -95,6 +98,10 @@
   flex-direction: column;
   flex: 1 40%;
   margin-top: 5px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 #profileToggleBar {
   display: none;

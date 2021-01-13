@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Note from "./Note";
 import "../css/notePage.css";
 
 const NotePage = ({ notes, theme, noteFunctions, toggleNoteEdit }) => {
+  useEffect(() => {
+    document.getElementById("themeControl").checked = theme.dark;
+  }, [theme]);
   return (
     <div id="notePage">
-      <div id="head"></div>
-      <div id="body">
+      <header id="head">
+        <input id="themeControl" type="checkbox" />
+        <div id="toggleTheme"></div>
+      </header>
+      <main id="body">
         {notes.map((note, index) => {
           return (
             <Note
@@ -17,7 +23,7 @@ const NotePage = ({ notes, theme, noteFunctions, toggleNoteEdit }) => {
             />
           );
         })}
-      </div>
+      </main>
     </div>
   );
 };

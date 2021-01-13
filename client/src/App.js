@@ -9,7 +9,7 @@ import "./css/app.css";
 const App = () => {
   const [user, setUser] = useState({ active: false, data: {} });
   const [notes, setNotes] = useState([]);
-  const [theme, setTheme] = useState({});
+  const [theme, setTheme] = useState({ dark: true });
   const [sett, togSett] = useState(false);
   const [noteEdit, setNoteEdit] = useState({
     display: false,
@@ -18,6 +18,16 @@ const App = () => {
   });
 
   useEffect(() => {
+    //Check localstrorage if user already saved a preferred theme
+    const themeValue = localStorage.getItem("note_app_theme");
+    setTheme(themeValue ? JSON.parse(themeValue) : { dark: true });
+
+    //If user does not have default theme stored. Set to default value
+    if (!themeValue) {
+      localStorage.setItem("note_app_theme", JSON.stringify({ dark: true }));
+    }
+
+    //Check if JWT token is save on browser for automatic login
     Helper.getData(
       "/user/getUser/",
       localStorage.getItem("note_app_token") || null
@@ -33,7 +43,6 @@ const App = () => {
       Helper.getData(`/todo/${user.data.userid}/`).then((data) =>
         setNotes(data)
       );
-      setTheme({});
     }
   }, [user]);
   const signup = (signupDetails) => {
@@ -106,12 +115,13 @@ const App = () => {
         ])
     );
   };
-  const bg_blur = sett || noteEdit.display ? true : false;
   const updateProfile = (data) => {
     Helper.patchData(`/user/updateUser/${user.data.userid}`, data).then(() =>
       setUser((prevState) => ({ ...prevState, data }))
     );
   };
+
+  //Change or tog event of NoteEditor window either visible or hidden from user
   const toggleNoteEdit = (isEdit, noteContent) => {
     if (isEdit === true) {
       setNoteEdit((prevState) => ({
@@ -142,6 +152,7 @@ const App = () => {
     togSett(false);
   };
 
+  //Change or tog event of settings window either visible or hidden from user
   const toggleSettings = () => {
     sett === false ? togSett(true) : togSett(false);
     //Make profile details close
@@ -154,6 +165,13 @@ const App = () => {
       isEdit: false,
     });
   };
+
+  const toggleTheme = (isDark) => {
+    setTheme({ dark: isDark });
+  };
+
+  //Background blur for overlay window contents
+  const bg_blur = sett || noteEdit.display ? true : false;
 
   return user.active ? (
     <>
@@ -172,6 +190,7 @@ const App = () => {
           user={user}
           notes={notes}
           theme={theme}
+          toggleTheme={toggleTheme}
           toggleSettings={toggleSettings}
           toggleNoteEdit={toggleNoteEdit}
         />
@@ -190,7 +209,7 @@ const App = () => {
           width: "100%",
           opacity: bg_blur ? 1 : 0,
           visibility: bg_blur ? "visible" : "hidden",
-          backdropFilter: "blur(-2px)",
+          backdropFilter: "blur(5px)",
           transition: "all 0.5s ease-in-out",
         }}
       ></div>
