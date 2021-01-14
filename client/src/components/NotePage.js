@@ -10,7 +10,9 @@ const NotePage = ({ notes, theme, noteFunctions, toggleNoteEdit }) => {
     <div id="notePage">
       <header id="head">
         <input id="themeControl" type="checkbox" />
-        <div id="toggleTheme"></div>
+        <label htmlFor="themeControl">
+          <div id="toggleTheme"></div>
+        </label>
       </header>
       <main id="body">
         {notes.map((note, index) => {

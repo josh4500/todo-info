@@ -21,6 +21,56 @@
   font-family: Nunito-Regular;
   background: inherit;
 }
+#themeControl {
+  display: none;
+  float: left;
+}
+#toggleTheme {
+  position: relative;
+  float: right;
+  right: 20px;
+  width: 50px;
+  height: 18px;
+  border: 2px solid #1f1f1f40;
+  background: linear-gradient(to right);
+  box-shadow: -3px -3px 5px 0 #ffffff10, 2px 2px 2px 0 #00000010,
+    inset -3px -3px 3px 0 #ffffff20, inset 3px 3px 5px 0 #00000020;
+  border-radius: 50px;
+  background: transparent;
+}
+#toggleTheme::after {
+  position: absolute;
+  content: "";
+  top: 1px;
+  left: 2px;
+  width: 0;
+  height: 14px;
+  border-radius: 16px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background: rgb(47, 138, 138);
+  transition: all 0.5s ease-in-out;
+  z-index: 119;
+}
+#toggleTheme::before {
+  position: absolute;
+  left: 2px;
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: inset -1px -1px 2px 0 #00000040, inset 1px 1px 3px 0 #00000040;
+  transition: all 0.5s ease-in-out;
+  z-index: 120;
+}
+#themeControl:checked + label > #toggleTheme::before {
+  left: unset;
+  transform: translateX(30px);
+}
+#themeControl:checked + label > #toggleTheme::after {
+  width: 35px;
+}
 #body {
   display: flex;
   flex-direction: row;

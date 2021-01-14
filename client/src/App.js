@@ -184,6 +184,8 @@ const App = () => {
             src={draw}
             alt="Open Drawer"
             title="Draw"
+            width=""
+            height=""
           />
         </label>
         <UserProfile
